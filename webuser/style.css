@@ -1,0 +1,28 @@
+/*
+	Ratings Stars
+	(with as little code as possible)
+*/
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+  color : black;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.2em;
+}
+.rating > span:hover,
+.rating > span:hover ~ span {
+color : transparent;
+
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   /*content: "\2605";*/
+   cursor: pointer;
+   position: absolute fixed;
+   left: 0; 
+   color: gold;
+}
