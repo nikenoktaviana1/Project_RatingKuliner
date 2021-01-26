@@ -18,60 +18,39 @@
 
 <body>
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="white">
+    <div class="sidebar" data-color="purple" data-background-color="black">
       <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
       Tip 2: you can also add an image using data-image tag
   -->
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-          CA
-        </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Culinary Admin
+          ADMIN
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
-              <i class="material-icons">dashboard</i>
+            <a class="nav-link" href="index.php">
+              <i class="material-icons"></i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="dataadmin.php">
-              <i class="material-icons">person</i>
+              <i class="material-icons"></i>
               <p>Data Admin</p>
             </a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="kuliner.php">
-              <i class="material-icons">restaurant</i>
+              <i class="material-icons"></i>
               <p>Tempat Kuliner</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="datatraining.php">
-              <i class="material-icons">book</i>
-              <p>Data Training</p>
-            </a>
-          </li>
           <li class="nav-item ">
-            <a class="nav-link" href="predikdataset.php">
-              <i class="material-icons">list</i>
-              <p>Prediksi Dataset</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="analisis.php">
-              <i class="material-icons">description</i>
-              <p>Halaman Analisis</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="loginadmin.html">
-              <i class="material-icons">arrow_back</i>
+            <a class="nav-link" href="login.php">
+              <i class="material-icons"></i>
               <p>Logout</p>
             </a>
           </li>
@@ -115,6 +94,19 @@
                                     <input type="file" name="gambar">
                                     <!-- <input type="submit" value="Upload"> -->                               
                               </div>
+                              <div class="form-group">
+                                <label class="control-label" for="maps">Maps</label>
+                                  <input type="text" name="maps" class="form-control" id="maps" required>
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label" for="video">Video</label>
+                                  <input type="text" name="video" class="form-control" id="video" required>
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label" for="detail">Detail</label>
+                                  <input type="text" name="detail" class="form-control" id="detail" required>
+                              </div>
+              
                               <div class="modal-footer">
                                 <input type="reset" class="btn btn-danger" name="reset" value="Reset">
                                 <input type="submit" class="btn btn-success" name="tambah" value="Simpan">
@@ -148,8 +140,60 @@
                             <td> <?php echo $b['namatempat'] ;?></td>
                             <td> <?php echo $b['alamat'] ;?></td>
                             <td>
-                              <a href="edit.php?id=<?php echo $b['id']; ?>" class="btn btn-warning">Edit</a>
-                              <a onclick="if(confirm('Apakah anda yakin ingin menghapus data ini ?')){ location.href='hapus.php?id=<?php echo $b['id']; ?>' }" class="btn btn-danger">Hapus</a>
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit<?php echo $b['idkuliner'];?>">Edit</button>
+                                <div class="modal fade" role="dialog" id="edit<?php echo $b['idkuliner'];?>">
+                                  <div  class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h4 class="modal-title">Edit Data Tempat Kuliner</h4>
+                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                      
+                                        <div class="modal-body">
+                                          <form method='POST' enctype="multipart/form-data" action='proseseditkuliner.php?idkuliner=<?php echo $b['idkuliner'];?>'>
+                                          <div class="form-group">
+                                            <label class="control-label" for="namatempat">Nama Tempat Kuliner</label>
+                                               <input type="text" name="namatempat" class="form-control" id="namatempat" value="<?php echo $b['namatempat'] ?>" required>
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="control-label" for="alamat">Alamat</label>
+                                              <input type="text" name="alamat" class="form-control" id="alamat" value="<?php echo $b['alamat'] ?>" required>
+                                          </div>
+                                          <div>
+                                            <label >Gambar</label>
+                                              <p></p>
+                                              <p></p>
+                                                <a href="#">
+                                                  <?php
+                                                    echo "<img src='../webadmin/images/".$b['nama_gambar']."' width='70' height='60'/>";
+                                                  ?>
+                                                </a>
+                                                <input type="text" name="gambar" value="<?php echo $b['nama_gambar'] ?>" readonly>
+                                                <!-- <input type="submit" value="Upload"> -->                               
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="control-label" for="maps">Maps</label>
+                                               <input type="text" name="maps" class="form-control" id="maps" value="<?php echo $b['maps'] ?>" required>
+                                          </div>
+                                           <div class="form-group">
+                                            <label class="control-label" for="video">Video</label>
+                                               <input type="text" name="video" class="form-control" id="video" value="<?php echo $b['video'] ?>" required>
+                                          </div>
+                                           <div class="form-group">
+                                            <label class="control-label" for="detail">Detail</label>
+                                               <input type="text" name="detail" class="form-control" id="detail" value="<?php echo $b['detail'] ?>" required>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <input type="hidden" name="idkuliner" value="<?php echo $b['idkuliner'] ?>">
+                                            <input type="submit" class="btn btn-success" name="tambah" value="Update">
+                                          </div>
+                                        </form>
+                                      </div>
+                                      </div> 
+                                  </div>
+                                </div>
+
+                              <a href="hapuskuliner.php?idkuliner=<?= $b['idkuliner'] ?>" onclick="return confirm('Anda yakin akan menghapus data ini?')">Hapus</a>
                             </td>
                           </tr>
                         <?php } ?>  

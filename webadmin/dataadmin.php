@@ -18,60 +18,39 @@
 
 <body>
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="white">
+    <div class="sidebar" data-color="purple" data-background-color="black">
       <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
       Tip 2: you can also add an image using data-image tag
   -->
       <div class="logo">
         <a class="simple-text logo-mini">
-          CA
-        </a>
-        <a class="simple-text logo-normal">
-          Culinary Admin
+          ADMIN
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
-              <i class="material-icons">dashboard</i>
+            <a class="nav-link" href="index.php">
+              <i class="material-icons"></i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="dataadmin.php">
-              <i class="material-icons">person</i>
+              <i class="material-icons"></i>
               <p>Data Admin</p>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="kuliner.php">
-              <i class="material-icons">restaurant</i>
+              <i class="material-icons"></i>
               <p>Tempat Kuliner</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="datatraining.php">
-              <i class="material-icons">book</i>
-              <p>Data Training</p>
-            </a>
-          </li>
           <li class="nav-item ">
-            <a class="nav-link" href="predikdataset.php">
-              <i class="material-icons">list</i>
-              <p>Prediksi Dataset</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="analisis.php">
-              <i class="material-icons">description</i>
-              <p>Halaman Analisis</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="loginadmin.html">
-              <i class="material-icons">arrow_back</i>
+            <a class="nav-link" href="login.php">
+              <i class="material-icons"></i>
               <p>Logout</p>
             </a>
           </li>
@@ -145,7 +124,7 @@
                   <?php
                     include 'koneksi.php';
                     $no = 1;
-                    $sqltampil = mysqli_query($connect, "select * from admin");
+                    $sqltampil = mysqli_query($connect, "select * from admin")or die(mysql_error());
                     while ($b=mysqli_fetch_array($sqltampil)) { ?>
                     <tr>
                       <td> <?php echo $no++ ;?></td>
@@ -154,8 +133,43 @@
                       <td> <?php echo $b['username'] ;?></td>
                       <td> <?php echo $b['pass'] ;?></td>
                       <td>
-                        <a href="edit.php?id=<?php echo $b['id']; ?>" class="btn btn-warning">Edit</a>
-                        <a onclick="if(confirm('Apakah anda yakin ingin menghapus data ini ?')){ location.href='hapus.php?id=<?php echo $b['id']; ?>' }" class="btn btn-danger">Hapus</a>
+                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit<?php echo $b['idadmin'];?>">Edit</button>
+                          <div class="modal fade" role="dialog" id="edit<?php echo $b['idadmin'];?>">
+                            <div  class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h4 class="modal-title">Edit Admin</h4>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                              
+                                <div class="modal-body">
+                                  <form method='POST' action='proseseditadmin.php?idadmin=<?php echo $b['idadmin'];?>'>
+                                  <div class="form-group">
+                                    <label class="control-label" for="namalengkap">Nama Lengkap</label>
+                                       <input type="text" name="namalengkap" class="form-control" id="namalengkap" value="<?php echo $b['namalengkap'] ?>" required>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="control-label" for="email">Email</label>
+                                      <input type="text" name="email" class="form-control" id="email" value="<?php echo $b['email'] ?>" required>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="control-label" for="username">Username</label>
+                                      <input type="text" name="username" class="form-control" id="username" value="<?php echo $b['username'] ?>" required>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="control-label" for="pass">Password</label>
+                                      <input type="text" name="pass" class="form-control" id="pass" value="<?php echo $b['pass'] ?>" required>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <input type="submit" class="btn btn-success" name="tambah" value="Edit">
+                                  </div>
+                                </form>
+                                </div> 
+                              </div>
+                            </div>
+                    </div>
+                    <a href="hapusadmin.php?idadmin=<?= $b['idadmin'] ?>" onclick="return confirm('Anda yakin akan menghapus data ini?')">Hapus</a>
+                        
                       </td>
                     </tr>
                   <?php } ?>  

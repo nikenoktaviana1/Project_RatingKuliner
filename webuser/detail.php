@@ -7,16 +7,57 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
 
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="assets/css/flexslider.css">
+  <link rel="stylesheet" href="assets/fonts/icomoon/style.css">
+  <link rel="stylesheet" href="assets/fontawesome-free/css/all.min.css">
+
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+
   <script type="text/javascript" language="JavaScript">
       function coba(val,val1){
         window.alert("Anda Telah memberi penilaian");
-        window.location.href = "rating.php?rating=" + val+"&no="+val1; 
+        window.location.href = "rating.php?send=detail&rating=" + val+"&no="+val1; 
     }
     </script>
+  <style type="text/css">
+    p {
+      color: white;
+    }
+    h1 {
+      color: white;
+    }
+  </style>
+
 
   <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg site-navbar navbar-light bg-light" id="pb-navbar">
+
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample09">
+        <ul class="navbar-nav">
+
+          <li class="nav-item"><a class="nav-link" href="index.html" onClick="window.location.href='index.html'">Home</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
         
     <!-- Page Content -->
+  <section class="site-section" id="section-temkul">
     <div class="container"> 
       <div class="row">
              <?php 
@@ -57,6 +98,7 @@
         </div>
       </div>
     </div>
+  </section>
 
     <?php  }?>
 

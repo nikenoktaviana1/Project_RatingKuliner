@@ -17,60 +17,35 @@
 
 <body>
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="white">
-      <!--
-      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-      Tip 2: you can also add an image using data-image tag
-  -->
+    <div class="sidebar" data-color="purple" data-background-color="black">
       <div class="logo">
         <a href="" class="simple-text logo-mini">
-          CA
-        </a>
-        <a href="" class="simple-text logo-normal">
-          Culinary Admin
+          ADMIN
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item active  ">
-            <a class="nav-link" href="index.html">
-              <i class="material-icons">dashboard</i>
+            <a class="nav-link" href="index.php">
+              <i class="material-icons"></i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="dataadmin.php">
-              <i class="material-icons">person</i>
+              <i class="material-icons"></i>
               <p>Data Admin</p>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="kuliner.php">
-              <i class="material-icons">restaurant</i>
+              <i class="material-icons"></i>
               <p>Tempat Kuliner</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="datatraining.php">
-              <i class="material-icons">book</i>
-              <p>Data Training</p>
-            </a>
-          </li>
           <li class="nav-item ">
-            <a class="nav-link" href="predikdataset.php">
-              <i class="material-icons">list</i>
-              <p>Prediksi Dataset</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="analisis.php">
-              <i class="material-icons">description</i>
-              <p>Halaman Analisis</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="loginadmin.html">
-              <i class="material-icons">arrow_back</i>
+            <a class="nav-link" href="login.php">
+              <i class="material-icons"></i>
               <p>Logout</p>
             </a>
           </li>
@@ -90,9 +65,6 @@
               <div class="row">
                 <div class="col-md-6">
                   <h4 class="card-title">Selamat Datang Admin</h4>
-                  <div class="alert alert-info">
-                    <span>Sentimen Analisis sebagai Rekomendasi Tempat Kuliner di Yogyakarta</span>
-                  </div>
                 </div>
                 
               </div>

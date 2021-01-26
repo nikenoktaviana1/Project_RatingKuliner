@@ -6,6 +6,9 @@
 	$ukuran = $_FILES['gambar']['size'];
 	$tipe = $_FILES['gambar']['type'];
 	$tmp_file = ($_FILES['gambar']['tmp_name']);
+	$maps = $_POST['maps'];
+	$video = $_POST['video'];
+	$detail = $_POST['detail'];
 
 	$path = "images/".$namagambar;
 
@@ -16,7 +19,7 @@
 			if (move_uploaded_file($tmp_file, $path)) 
 			{
 
-				$query = "INSERT INTO `tempat_kuliner`(`idkuliner`, `namatempat`,`alamat`, `nama_gambar`, `gambar`, `ukuran`, `tipe`) VALUES ('','".$namatempat."','".$alamat."','".$namagambar."','".$tmp_file."','".$ukuran."','".$tipe."')";
+				$query = "INSERT INTO `tempat_kuliner` VALUES ('','".$namatempat."','".$alamat."','".$namagambar."','".$tmp_file."','".$ukuran."','".$tipe."','".$maps."','".$video."','','".$detail."')";
 				$sql = mysqli_query($connect,$query);
 
 				if($sql)

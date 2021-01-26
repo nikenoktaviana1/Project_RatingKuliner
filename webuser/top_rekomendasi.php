@@ -68,7 +68,7 @@
 			<div class="row">
 				<div class="col-md-12 mb-5">
 					<div class="section-heading text-center">
-						<h2><font color="white"><strong>Rekomendasi Tempat Kuliner di Yogyakarta</strong></font></h2>
+						<h2><font color="white"><strong>Top Rekomendasi Tempat Kuliner di Yogyakarta</strong></font></h2>
 
 					</div>
 					<!-- Page Content -->
@@ -81,11 +81,13 @@
 		      <li data-target="#demo" data-slide-to="0" class="active"></li>
 		      <li data-target="#demo" data-slide-to="1"></li>
 		      <li data-target="#demo" data-slide-to="2"></li>
+		      <li data-target="#demo" data-slide-to="3"></li>
+		      <li data-target="#demo" data-slide-to="4"></li>
 		    </ul>
 		     <?php
 			    include 'koneksi.php';
 			    $x=0;
-			    $sql=mysqli_query($connect,"SELECT * FROM tempat_kuliner ORDER BY rating DESC LIMIT 3 ") or die("error");
+			    $sql=mysqli_query($connect,"SELECT * FROM tempat_kuliner ORDER BY rating DESC LIMIT 5 ") or die("error");
 			    while ($data=mysqli_fetch_array($sql)) { 
 			    	$gambar[$x]=$data['nama_gambar'];
 			    	$nama[$x]=$data['namatempat'];
@@ -126,6 +128,28 @@
 		        <div class="transbox">
 		          <h3>Top Rating 3</h3> 
 		          <h2>"<?php echo $nama[2] ?>"</h2>
+		        </div>
+		      </div>
+		    </div>
+		     <div class="carousel-item">
+		      <?php
+					echo "<img src='../webadmin/images/".$gambar[3]."' width='1100' height='400'/>";
+	  			?> 
+	  			<div class="carousel-caption">
+		        <div class="transbox">
+		          <h3>Top Rating 4</h3> 
+		          <h2>"<?php echo $nama[3] ?>"</h2>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="carousel-item">
+		      <?php
+					echo "<img src='../webadmin/images/".$gambar[4]."' width='1100' height='400'/>";
+	  			?> 
+	  			<div class="carousel-caption">
+		        <div class="transbox">
+		          <h3>Top Rating 5</h3> 
+		          <h2>"<?php echo $nama[4] ?>"</h2>
 		        </div>
 		      </div>
 		    </div>

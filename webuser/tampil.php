@@ -20,7 +20,7 @@
 	<script type="text/javascript" language="JavaScript">
       function coba(val,val1){
         window.alert("Anda Telah memberi penilaian");
-        window.location.href = "rating.php?rating=" + val+"&no="+val1; 
+        window.location.href = "rating.php?send=home&rating=" + val+"&no="+val1; 
     }
     </script>
 
@@ -56,6 +56,7 @@
 				<div class="col-md-12 mb-5">
 					<div class="section-heading text-center">
 						<h2><font color="white"><strong>Tempat Kuliner di Yogyakarta</strong></font></h2>
+						<h7><font color="white"><strong>-- Berikan rating untuk tempat kuliner --</strong></font></h7>
 					</div>
 				</div>
 			</div>

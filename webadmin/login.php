@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +35,7 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('assets/img/kuliner.jpg');">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form action="proseslogin.php" method="POST" class="login100-form validate-form">
 					<span class="login100-form-logo">
 						<i class="zmdi zmdi-local-store"></i>
 					</span>
@@ -53,10 +56,21 @@
 
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn"><a href="index.html">Login</a>
+						<button class="login100-form-btn">Login</a>
 							</button>
 					</div>
 				</form>
+				  <p style="color: red">
+                    <?php
+                    if (isset($_GET['pesan'])) {
+                        if ($_GET['pesan']=="gagal") { ?>
+                        <script type="text/javascript"> window.alert("Login gagal! username atau password salah!");</script>
+
+                            <?php
+                        }
+                    }
+                    ?>
+                  </p>
 			</div>
 		</div>
 	</div>
